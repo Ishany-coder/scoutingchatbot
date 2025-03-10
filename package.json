@@ -31,5 +31,18 @@
 		"mysql2": "^3.12.0",
 		"openai": "^4.85.4",
 		"zod": "^3.24.2"
-	}
+	},
+	"description": "Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).",
+	"main": "svelte.config.js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Ishany-coder/scoutingchatbot.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Ishany-coder/scoutingchatbot/issues"
+	},
+	"homepage": "https://github.com/Ishany-coder/scoutingchatbot#readme"
 }

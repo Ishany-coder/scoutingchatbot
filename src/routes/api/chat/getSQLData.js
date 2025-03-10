@@ -4,7 +4,7 @@ import { zodResponseFormat } from "openai/helpers/zod";
 import { z } from "zod";
 
 const openai = new OpenAI({
-    apiKey: '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' // Ensure this is set in .env
+    apiKey: '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'
 });
 
 // ✅ Define a Zod schema for the structured SQL response
@@ -34,6 +34,9 @@ function combineMessages(messages) {
 
 export async function generateSQL(messages) {
     try {
+        console.log('HERE');
+        console.log(messages);
+    
         const combinedMessages = combineMessages(messages);
 
 

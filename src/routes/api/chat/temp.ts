@@ -12,7 +12,6 @@ const openai = createOpenAI({
 });
 
 async function getTeamData(messages) {
-  console.log('CALLING generateDQWL');
     const queryResponse = await generateSQL(messages);
     const queryData = await queryResponse.json();
     const sqlQuery = queryData.newSqlQuery;
@@ -26,24 +25,7 @@ export const POST = (async ({ request }) => {
 
   const result = streamText({
     model: openai('gpt-4o'),
-    messages,
-    tools: {
-        teamScout: tool({
-          description: 'This tool gets information about teams like team performance, match data, their scores and which teams are doing well and which are not doing well. It is used to find teams based on their performance',
-          parameters: z.object({
-          }),
-          execute: async ({ }) => {
-            console.log(messages);
-            const {sqlQuery, dbData} = await getTeamData(messages);
-            console.log('------ Calling the teamScout tool -------');
-            console.log(sqlQuery);
-            return {
-                sqlQuery,
-                dbData
-            };
-          },
-        }),
-      },
+    messages
   });
 
   return result.toDataStreamResponse();
