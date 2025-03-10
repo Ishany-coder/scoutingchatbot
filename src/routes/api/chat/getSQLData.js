@@ -4,8 +4,7 @@ import { zodResponseFormat } from "openai/helpers/zod";
 import { z } from "zod";
 
 const openai = new OpenAI({
-    apiKey: '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'
-});
+    apiKey: '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'});
 
 // ✅ Define a Zod schema for the structured SQL response
 const SQLResponseSchema = z.object({

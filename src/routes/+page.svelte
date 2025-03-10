@@ -1,5 +1,9 @@
 <script>
     import { useChat } from '@ai-sdk/svelte';
+    import markdownIt from 'markdown-it';
+
+    const md = new markdownIt();
+
     
     const { input, handleSubmit, messages } = useChat({ maxSteps: 5 });
 </script>
@@ -12,7 +16,7 @@
                 <div class="flex w-full {message.role === 'user' ? 'justify-end' : 'justify-start'}">
                     <div class="max-w-xs md:max-w-md p-3 rounded-lg shadow-md
                         {message.role === 'user' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-900'}">
-                        {message.content}
+                        {@html md.render(message.content)}
                     </div>
                 </div>
             {/each}
